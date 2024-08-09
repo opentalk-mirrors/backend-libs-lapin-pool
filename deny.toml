@@ -120,8 +120,6 @@ skip = [
   { name = "async-lock", version = "2" },
   { name = "bitflags", version = "1" },
   { name = "event-listener", version = "2" },
-  { name = "event-listener", version = "4" },
-  { name = "event-listener-strategy", version = "0.4" },
   { name = "fastrand", version = "1" },
   { name = "futures-lite", version = "1" },
   { name = "linux-raw-sys", version = "0.3" },
