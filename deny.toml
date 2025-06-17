@@ -115,18 +115,7 @@ allow = []
 # List of crates to deny
 deny = []
 # Certain crates/versions that will be skipped when doing duplicate detection.
-skip = [
-  { name = "async-io", version = "1" },
-  { name = "async-lock", version = "2" },
-  { name = "bitflags", version = "1" },
-  { name = "event-listener", version = "2" },
-  { name = "fastrand", version = "1" },
-  { name = "futures-lite", version = "1" },
-  { name = "linux-raw-sys", version = "0.3" },
-  { name = "polling", version = "2" },
-  { name = "rustix", version = "1.0" },
-  { name = "socket2", version = "0.4" },
-]
+skip = []
 # Similarly to `skip` allows you to skip certain crates during duplicate
 # detection. Unlike skip, it also includes the entire tree of transitive
 # dependencies starting at the specified crate, up to a certain depth, which is
