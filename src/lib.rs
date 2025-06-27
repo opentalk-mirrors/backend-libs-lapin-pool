@@ -186,7 +186,7 @@ async fn reap_unused_connections(pool: Arc<RabbitMqPool>) {
         for entry in removed_entries {
             if entry.connection.status().connected() {
                 if let Err(e) = entry.connection.close(0, "closing").await {
-                    log::error!("Failed to close connection in gc {}", e);
+                    log::error!("Failed to close connection in gc {e}");
                 }
             }
         }
