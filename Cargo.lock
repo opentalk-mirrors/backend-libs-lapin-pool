@@ -327,9 +327,9 @@ checksum = "4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c"
 
 [[package]]
 name = "lapin"
-version = "3.2.0"
+version = "3.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec260cca49fd7943bcbd211a8facd0b1aa6183f422126f11e98b65c5cf5cb3cb"
+checksum = "bad5ae535873471fc68e6e25a90f92ab0a65f5bd10979b9f1c407ab4a3aaeaa3"
 dependencies = [
  "amq-protocol",
  "async-trait",
@@ -339,7 +339,6 @@ dependencies = [
  "futures-io",
  "reactor-trait",
  "tracing",
- "waker-fn",
 ]
 
 [[package]]
@@ -745,12 +744,6 @@ name = "utf8_iter"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b6c140620e7ffbb22c2dee59cafe6084a59b5ffc27a8859a5f0d494b5d52b6be"
-
-[[package]]
-name = "waker-fn"
-version = "1.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "317211a0dc0ceedd78fb2ca9a44aed3d7b9b26f81870d485c07122b4350673b7"
 
 [[package]]
 name = "wasi"
