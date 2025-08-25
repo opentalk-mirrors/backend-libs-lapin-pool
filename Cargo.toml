@@ -18,7 +18,7 @@ version = "0.2.0"
 lapin = { version = "3", default-features = false }
 log = "0.4"
 snafu = "0.8"
-tokio-executor-trait = "2"
+tokio-executor-trait = "3"
 tokio-reactor-trait = "2.0.0"
 tokio = "1"
 

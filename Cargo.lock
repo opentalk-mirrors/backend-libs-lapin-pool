@@ -40,7 +40,7 @@ dependencies = [
  "amq-protocol-uri",
  "async-trait",
  "cfg-if",
- "executor-trait",
+ "executor-trait 2.1.2",
  "reactor-trait 2.8.0",
  "tcp-stream",
  "tracing",
@@ -147,6 +147,15 @@ name = "executor-trait"
 version = "2.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13c39dff9342e4e0e16ce96be751eb21a94e94a87bb2f6e63ad1961c2ce109bf"
+dependencies = [
+ "async-trait",
+]
+
+[[package]]
+name = "executor-trait"
+version = "3.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "57d6a1fc6700fa12782770cb344a29172ae940ea41d5fd5049fdf236dd6eaa92"
 dependencies = [
  "async-trait",
 ]
@@ -333,7 +342,7 @@ checksum = "bad5ae535873471fc68e6e25a90f92ab0a65f5bd10979b9f1c407ab4a3aaeaa3"
 dependencies = [
  "amq-protocol",
  "async-trait",
- "executor-trait",
+ "executor-trait 2.1.2",
  "flume",
  "futures-core",
  "futures-io",
@@ -350,7 +359,7 @@ dependencies = [
  "pretty_assertions",
  "snafu",
  "tokio",
- "tokio-executor-trait",
+ "tokio-executor-trait 3.1.0",
  "tokio-reactor-trait",
 ]
 
@@ -492,7 +501,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5b1c85237926dd82e8bc3634240ecf2236ea81e904b3d83cdb1df974af9af293"
 dependencies = [
  "async-trait",
- "executor-trait",
+ "executor-trait 2.1.2",
  "flume",
  "futures-core",
  "futures-io",
@@ -672,8 +681,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6278565f9fd60c2d205dfbc827e8bb1236c2b1a57148708e95861eff7a6b3bad"
 dependencies = [
  "async-trait",
- "executor-trait",
+ "executor-trait 2.1.2",
  "tokio",
+]
+
+[[package]]
+name = "tokio-executor-trait"
+version = "3.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1a7fe39b60ffe238db070f2e66fab42c3c2967482e2fbf754afd7e65525cf0da"
+dependencies = [
+ "async-trait",
+ "executor-trait 2.1.2",
+ "executor-trait 3.1.0",
+ "tokio",
+ "tokio-executor-trait 2.4.0",
 ]
 
 [[package]]
