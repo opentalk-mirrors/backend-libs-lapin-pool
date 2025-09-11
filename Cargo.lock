@@ -634,14 +634,14 @@ dependencies = [
 
 [[package]]
 name = "tokio-reactor-trait"
-version = "2.8.0"
+version = "4.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed63068937f9230e8ceb1ee626d322115c3b43a1f9f59cd0ecbf4622eb34df3a"
+checksum = "e5410ef3f06b4ca0b3868bebeb24e19fef3a05e2ad086f2b8230f2bdf4052cdf"
 dependencies = [
  "async-trait",
  "futures-core",
  "futures-io",
- "reactor-trait 2.8.0",
+ "reactor-trait 3.1.1",
  "tokio",
  "tokio-stream",
  "tokio-util",
