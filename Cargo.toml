@@ -17,7 +17,7 @@ version = "0.2.0"
 [dependencies]
 lapin = { version = "3", default-features = false }
 log = "0.4"
-snafu = "0.8"
+snafu = "0.9"
 tokio-executor-trait = "3"
 tokio-reactor-trait = "4.0.0"
 tokio = "1"
