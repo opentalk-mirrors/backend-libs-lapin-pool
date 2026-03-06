@@ -94,10 +94,12 @@ impl RabbitMqPool {
     /// This just creates a connection and does not add it to its pool. Connections will automatically be created when
     /// creating channels.
     pub async fn make_connection(&self) -> Result<lapin::Connection, Error> {
-        let connection =
-            lapin::Connection::connect(&self.url, lapin::ConnectionProperties::default())
-                .await
-                .context(ConnectionSnafu)?;
+        let connection = lapin::Connection::connect(
+            &self.url,
+            lapin::ConnectionProperties::default().enable_auto_recover(),
+        )
+        .await
+        .context(ConnectionSnafu)?;
 
         Ok(connection)
     }
