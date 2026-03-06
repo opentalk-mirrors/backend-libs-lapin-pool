@@ -5,16 +5,14 @@
 use std::{
     ops::{Deref, DerefMut},
     sync::{
-        atomic::{AtomicU32, Ordering},
         Arc,
+        atomic::{AtomicU32, Ordering},
     },
     time::Duration,
 };
 
 use snafu::{ResultExt, Snafu};
 use tokio::{sync::Mutex, time::interval};
-use tokio_executor_trait::Tokio as TokioExecutor;
-use tokio_reactor_trait::Tokio as TokioReactor;
 
 /// Errors that occur while using the RabbitMQ connection pool.
 #[derive(Debug, Snafu)]
@@ -96,14 +94,10 @@ impl RabbitMqPool {
     /// This just creates a connection and does not add it to its pool. Connections will automatically be created when
     /// creating channels.
     pub async fn make_connection(&self) -> Result<lapin::Connection, Error> {
-        let connection = lapin::Connection::connect(
-            &self.url,
-            lapin::ConnectionProperties::default()
-                .with_executor(TokioExecutor::current())
-                .with_reactor(TokioReactor::current()),
-        )
-        .await
-        .context(ConnectionSnafu)?;
+        let connection =
+            lapin::Connection::connect(&self.url, lapin::ConnectionProperties::default())
+                .await
+                .context(ConnectionSnafu)?;
 
         Ok(connection)
     }
@@ -156,7 +150,7 @@ impl RabbitMqPool {
         for entry in connections.drain(..) {
             entry
                 .connection
-                .close(reply_code, reply_message)
+                .close(reply_code, reply_message.into())
                 .await
                 .context(CloseSnafu)?;
         }
@@ -184,10 +178,10 @@ async fn reap_unused_connections(pool: Arc<RabbitMqPool>) {
         drop(connections);
 
         for entry in removed_entries {
-            if entry.connection.status().connected() {
-                if let Err(e) = entry.connection.close(0, "closing").await {
-                    log::error!("Failed to close connection in gc {e}");
-                }
+            if entry.connection.status().connected()
+                && let Err(e) = entry.connection.close(0, "closing".into()).await
+            {
+                log::error!("Failed to close connection in gc {e}");
             }
         }
     }
