@@ -57,7 +57,6 @@ allow = [
   "BSD-3-Clause",
   "ISC",
   "MIT",
-  "OpenSSL",
   "Unicode-3.0",
 ]
 # The confidence threshold for detecting a license from license text.
