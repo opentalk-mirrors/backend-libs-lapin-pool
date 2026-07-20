@@ -125,6 +125,7 @@ deny = []
 skip = [
   { name = "nom", version = "7" },
   { name = "cpufeatures", version = "0.2" },
+  { name = "syn", version = "2" },
 ]
 # Similarly to `skip` allows you to skip certain crates during duplicate
 # detection. Unlike skip, it also includes the entire tree of transitive
